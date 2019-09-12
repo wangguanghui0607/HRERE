@@ -28,7 +28,7 @@ m.01l443l	m.04t_bj	dave_holland	barry_altschul	NA	tonight he brings his energies
 ```
 
 #### Fb3m
-dataset from Freebase dump released of June 2015, the sample data is as below.
+dataset from [Freebase](https://developers.google.com/freebase/) dump released of June 2015, the sample data is as below.
 ```
 m.03frx9g	/music/release/region	m.09c7w0
 m.0q8hxch	/music/release/format	m.01www

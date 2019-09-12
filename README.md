@@ -22,17 +22,17 @@ python prepare_data.py
 ```
 #### NYT corpus
 [The New York Times Annotated Corpus](https://catalog.ldc.upenn.edu/LDC2008T19), the sample data as below.
-'''
+```
 m.01l443l	m.04t_bj	dave_holland	barry_altschul	NA	the occasion was suitably exceptional : a reunion of the 1970s-era sam rivers trio , with dave_holland on bass and barry_altschul on drums .	###END###
 m.01l443l	m.04t_bj	dave_holland	barry_altschul	NA	tonight he brings his energies and expertise to the miller theater for the festival 's thrilling finale : a reunion of the 1970s sam rivers trio , with dave_holland on bass and barry_altschul on drums .	###END###
-'''
+```
 
 #### Fb3m
 dataset from Freebase dump released of June 2015, the sample data is as below.
-'''
+```
 m.03frx9g	/music/release/region	m.09c7w0
 m.0q8hxch	/music/release/format	m.01www
-'''
+```
 
 ### Preprocessing
 

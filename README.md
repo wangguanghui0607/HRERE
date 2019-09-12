@@ -33,6 +33,8 @@ dataset from [Freebase](https://developers.google.com/freebase/) dump released o
 m.03frx9g	/music/release/region	m.09c7w0
 m.0q8hxch	/music/release/format	m.01www
 ```
+#### Glove
+[GloVe](https://nlp.stanford.edu/projects/glove/) is an unsupervised learning algorithm for obtaining vector representations for words.
 
 ### Preprocessing
 

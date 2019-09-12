@@ -38,7 +38,7 @@ m.0q8hxch	/music/release/format	m.01www
 
 ### Preprocessing
 
-Construct the knowledge graph:
+Construct the knowledge graph. To create dataset for training:
 
 ```
 python create_kg.py

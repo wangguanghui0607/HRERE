@@ -57,7 +57,7 @@ python preprocess.py -p -g
 Copy the directory `./fb3m` in the `data` folder in [tensorflow-efe](https://github.com/billy-inn/tensorflow-efe) and run the following commands to obtain the complex embeddings:
 
 ```
-# Convert raw data into e2id and r2id files as training data
+# Convert raw data into dataset replaced by entity id and relation id
 python preprocess.py --data fb3m
 python train.py --model best_Complex_tanh_fb3m --data fb3m --save
 python get_embeddings.py --embed complex --model best_Complex_tanh_fb3m --output <repo_path>/fb3m

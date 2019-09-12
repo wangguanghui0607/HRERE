@@ -38,13 +38,15 @@ m.0q8hxch	/music/release/format	m.01www
 
 ### Preprocessing
 
-Construct the knowledge graph. To create dataset for training:
+#### Construct the knowledge graph.
+Create dataset same format(MID, relation, MID) as fb3m for training:
 
 ```
 python create_kg.py
 ```
 
-Preprocessing the data:
+#### Preprocessing the data:
+Create dataset which fileds is [relation_id, entity_1_id, entity_1_pos_start, entity_1_pos_end, entity_2_id, entity_2_pos_start, entity_2_pos_end, sentence]
 
 ```
 python preprocess.py -p -g

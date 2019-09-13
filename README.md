@@ -71,6 +71,7 @@ python get_embeddings.py --embed complex --model best_Complex_tanh_fb3m --output
 Then copy `e2id.txt` and `r2id.txt` in the `tensorflow-efe/data/fb3m` to `./fb3m` and run the following command:
 
 ```
+# Replace ids with embeddings from model trained in efe and store files in data as *.npy
 python get_embeddings.py 
 ```
 

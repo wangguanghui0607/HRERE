@@ -61,6 +61,7 @@ Copy the directory `./fb3m` in the `data` folder in [tensorflow-efe](https://git
 python preprocess.py --data fb3m
 
 # Generate labels in generating batch data, label is 1 for positive sample and label is -1 for negative sample
+# entity embedding and relation embedding will be stored in the final checkpoint(or trained model)
 python train.py --model best_Complex_tanh_fb3m --data fb3m --save
 python get_embeddings.py --embed complex --model best_Complex_tanh_fb3m --output <repo_path>/fb3m
 ```

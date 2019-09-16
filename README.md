@@ -46,7 +46,7 @@ python create_kg.py
 ```
 
 #### Preprocessing the data:
-Create dataset which fileds is [relation_id, entity_1_id, entity_1_pos_start, entity_1_pos_end, entity_2_id, entity_2_pos_start, entity_2_pos_end, sentence]
+Create dataset which fileds is [relation_id, entity_1_id, entity_1_pos_start, entity_1_pos_end, entity_2_id, entity_2_pos_start, entity_2_pos_end, sentence], positions of entities are calculated in the following script:
 
 ```
 python preprocess.py -p -g

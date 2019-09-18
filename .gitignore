@@ -1,4 +1,12 @@
 __pycache__/
 *.py[cod]
 *.swp
+*.pkl
+*.npy
+*.txt
+*.tsv
+*.csv
 utils/__pycache__/
+checkpoint/
+fb3m/
+log/

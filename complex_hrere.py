@@ -247,6 +247,8 @@ class ComplexHRERE(Model):
             [self.train_op, self.global_step, self.loss, self.valid_size, self.correct_num],
             feed_dict=feed)
         acc = 0.0
+
+        # import pdb; pdb.set_trace()
         if size > 0:
             acc = cnt / size
         time_str = datetime.datetime.now().isoformat()
@@ -319,6 +321,7 @@ class ComplexHRERE(Model):
         all_labels = []
         total_cnt = 0
         total_size = 0
+        #import pdb; pdb.set_trace()
         for batch in batches:
             words_batch, textlen_batch, positions_batch, heads_batch, tails_batch, labels_batch = zip(*batch) # noqa
             feed = self.create_feed_dict(words_batch, textlen_batch, positions_batch,
@@ -336,13 +339,22 @@ class ComplexHRERE(Model):
                 all_labels.append(tmp)
         all_probs = np.reshape(all_probs, (-1))
         all_labels = np.reshape(np.array(all_labels), (-1))
+
+        #import pdb; pdb.set_trace()
         return all_labels, all_probs, total_cnt / total_size
 
     def evaluate(self, sess, train, test):
         train_batches = data_utils.batch_iter(train, self.batch_size, self.num_epochs)
         data_size = len(train)
         num_batches_per_epoch = int((data_size - 1) / self.batch_size) + 1
+        
+        # batch_num = 0
+        # import pdb; pdb.set_trace()
         for batch in train_batches:
+            #if batch_num > 100:
+            #   yield self.predict(sess, test)
+            #   break
+            # batch_num += 1
             (words_batch, textlen_batch, positions_batch, heads_batch, tails_batch, labels_batch) = zip(*batch) # noqa
             self.train_on_batch(sess, words_batch, textlen_batch, positions_batch,
                     heads_batch, tails_batch, labels_batch)

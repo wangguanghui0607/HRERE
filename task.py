@@ -20,10 +20,14 @@ class AttrDict(dict):
 
 class Task:
     def __init__(self, model_name, runs, params_dict, logger):
+        # self.model_param_space = ModelParamSpace(model_name)
         print("Loading data...")
         words, positions, heads, tails, labels = pkl_utils._load(config.GROUPED_TRAIN_DATA)
         words_test, positions_test, heads_test, tails_test, labels_test = pkl_utils._load(config.GROUPED_TEST_DATA) # noqa
-
+        import pdb; pdb.set_trace()
+        samples_num = -50000
+        words, positions, heads, tails, labels = words[samples_num:], positions[samples_num:], heads[samples_num:], tails[samples_num:], labels[samples_num:]
+        words_test, positions_test, heads_test, tails_test, labels_test = words_test[samples_num:], positions_test[samples_num:], heads_test[samples_num:], tails_test[samples_num:], labels_test[samples_num:]
         self.embedding = embedding_utils.Embedding(
             config.EMBEDDING_DATA,
             list([s for bags in words for s in bags]) +
@@ -202,6 +206,7 @@ class Task:
         probs_list = []
         for labels, probs, acc in self.model.evaluate(sess, self.full_set, self.test_set):
             epochs += 1
+            print('epoch: {}'.format(epochs))
             # ap, p10, p30, p50 = self.get_scores(labels, probs)
             # self.logger.info("\t\t%d\t\t%.3f\t\t%.3f\t\t%.3f\t\t%.3f\t\t%.3f" %
             #         (epochs, ap, acc, p10, p30, p50))
@@ -209,7 +214,8 @@ class Task:
             #     best_ap = ap
             #     best_labels = labels
             #     best_probs = probs
-            probs_list.append(probs_list)
+            probs_list.append(probs)
+            self.saver.save(sess, '{}/model_ep_{}.ckpt'.format(self.checkpoint_prefix, epochs))
         if len(probs_list) > 5:
             probs_list = probs_list[-5:]
         probs = np.mean(np.vstack(probs_list), axis=0)
@@ -217,6 +223,7 @@ class Task:
         if if_save:
             self.model.save_preds(sess, self.test_set)
             self.get_scores(labels, probs, True, prefix)
+            self.saver.save(sess, '{}/final_model.ckpt'.format(self.checkpoint_prefix))
         sess.close()
         return ap, p10, p30, p50
 
